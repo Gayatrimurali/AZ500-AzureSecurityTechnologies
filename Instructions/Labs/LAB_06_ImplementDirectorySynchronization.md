@@ -3,11 +3,11 @@
 
 ## Lab scenario
 
-You have been asked to create a proof of concept demonstrating how to integrate the on-premises Active Directory Domain Services (AD DS) environment with an Azure Active Directory (Azure AD) tenant. Specifically, you want to:
+You have been asked to create a proof of concept demonstrating how to integrate the on-premises Microsoft Entra ID Domain Services environment with an Microsoft Entra ID tenant. Specifically, you want to:
 
-- Implement a single-domain AD DS forest by deploying an Azure VM hosting an AD DS domain controller
-- Create and configure an Azure AD tenant
-- Synchronize the AD DS forest with the Azure AD tenant
+- Implement a single-domain Microsoft Entra ID DS forest by deploying an Azure VM hosting an Microsoft Entra ID DS domain controller
+- Create and configure an Microsoft Entra ID tenant
+- Synchronize the AD DS forest with the Microsoft Entra ID tenant
 
 > For all the resources in this lab, we are using the **East US** region. Verify with your instructor this is the region to use for class. 
 
@@ -15,9 +15,9 @@ You have been asked to create a proof of concept demonstrating how to integrate 
 
 In this lab, you will complete the following exercises:
 
-- Exercise 1: Deploy an Azure VM hosting an Active Directory domain controller
-- Exercise 2: Create and configure an Azure Active Directory tenant
-- Exercise 3: Synchronize Active Directory forest with an Azure Active Directory tenant
+- Exercise 1: Deploy an Azure VM hosting an Microsoft Entra ID domain controller
+- Exercise 2: Create and configure an Microsoft Entra ID Directory tenant
+- Exercise 3: Synchronize Active Directory forest with an Microsoft Entra ID Directory tenant
 
 
 ## Architecture diagram
@@ -26,13 +26,13 @@ In this lab, you will complete the following exercises:
 
 ## Estimated timing: 60 minutes
 
-### Exercise 1: Deploy an Azure VM hosting an Active Directory domain controller
+### Exercise 1: Deploy an Azure VM hosting an Microsoft Entra ID domain controller
 
 
 In this exercise, you will complete the following tasks:
 
 - Task 1: Identify an available DNS name for an Azure VM deployment
-- Task 2: Use an ARM template to deploy an Azure VM hosting an Active Directory domain controller
+- Task 2: Use an ARM template to deploy an Azure VM hosting an Microsoft Entra ID domain controller
 
 #### Task 1: Identify an available DNS name for an Azure VM deployment
 
@@ -52,7 +52,7 @@ In this task, you will identify a DNS name for your Azure VM deployment.
     Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location>'
     ```
 
-    >**Note**: Replace the `<custom-label>` placeholder with a valid labvm<inject key="DeploymentID" enableCopy="false"/> and Replace the `<location>` placeholder with the name of the region into which you want to deploy the Azure VM that will host the Active Directory domain controller you will use in this lab.
+    >**Note**: Replace the `<custom-label>` placeholder with a valid labvm<inject key="DeploymentID" enableCopy="false"/> and Replace the `<location>` placeholder with the name of the region into which you want to deploy the Azure VM that will host the Microsoft Entra ID domain controller you will use in this lab.
 
     >**Note**: To identify Azure regions where you can provision Azure VMs, refer to [**https://azure.microsoft.com/en-us/regions/offers/**](https://azure.microsoft.com/en-us/regions/offers/)
 
@@ -66,9 +66,9 @@ In this task, you will identify a DNS name for your Azure VM deployment.
 
 1. Close the Cloud Shell.
 
-#### Task 2: Use an ARM template to deploy an Azure VM hosting an Active Directory domain controller
+#### Task 2: Use an ARM template to deploy an Azure VM hosting an Microsoft Entra ID domain controller
 
-In this task, you will deploy an Azure VM that will host an Active Directory domain controller
+In this task, you will deploy an Azure VM that will host an Microsoft Entra ID domain controller
 
 1. Open another browser tab in the same browser window and navigate to the [https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain). 
 
@@ -100,24 +100,24 @@ In this task, you will deploy an Azure VM that will host an Active Directory dom
 
 > **Result**: After you completed this exercise, you have initiated deployment of an Azure VM that will host an Active Directory domain controller by using an Azure Resource Manager template
 
-### Exercise 2: Create and configure an Azure Active Directory tenant 
+### Exercise 2: Create and configure an Microsoft Entra ID Directory tenant 
 
 
 In this exercise, you will complete the following tasks:
 
-- Task 1: Create an Azure Active Directory (AD) tenant
-- Task 2: Add a custom DNS name to the new Azure AD tenant
-- Task 3: Create an Azure AD user with the Global Administrator role
+- Task 1: Create a Microsoft Entra ID tenant
+- Task 2: Add a custom DNS name to the new Microsoft Entra ID tenant
+- Task 3: Create a Microsoft Entra ID user with the Global Administrator role
 
-#### Task 1: Create an Azure Active Directory (AD) tenant
+#### Task 1: Create a Microsoft Entra ID tenant
 
 In this task, you will create a new Azure AD tenant to use in this lab. 
 
-1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Azure Active Directory** and select it.
+1. In the Azure portal, in the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Microsoft Entra ID** and select it.
 
-1. On the blade displaying **Overview** of your current Azure AD tenant, click **Manage tenants**, and then on the next screen, click **+ Create**.
+1. On the blade displaying **Overview** of your current Microsoft Entra ID tenant, click **Manage tenants**, and then on the next screen, click **+ Create**.
 
-1. On the **Basics** tab of the **Create a tenant** blade, ensure that the options **Azure Active Directory** are selected and click **Next: Configuration >**.
+1. On the **Basics** tab of the **Create a tenant** blade, ensure that the options **Microsoft Entra ID** are selected and click **Next: Configuration >**.
 
 1. On the **Configuration** tab of the **Create a tenant** blade, specify the following settings:
 
@@ -137,9 +137,9 @@ In this task, you will create a new Azure AD tenant to use in this lab.
     
     >**Note**: Wait for 2 minutes for new tenant to be created. Use the **Notification** icon to monitor the deployment status and please do not wait for previous exercise deployment to complete but instead proceed to the next exercise.
 
-#### Task 2: Add a custom DNS name to the new Azure AD tenant
+#### Task 2: Add a custom DNS name to the new Microsoft Entra ID tenant
 
-In this task, you will add your custom DNS name to the new Azure AD tenant. 
+In this task, you will add your custom DNS name to the new Microsoft Entra ID tenant. 
 
 1. In the Azure portal, in the toolbar, click the **Directories + subscriptions** icon, located to the right of the Cloud Shell icon. 
 
@@ -147,23 +147,23 @@ In this task, you will add your custom DNS name to the new Azure AD tenant.
 
     >**Note**: You may need to refresh the browser window if the **AdatumSync** entry does not appear in the **Directories + subscriptions** filter list.
 
-1. In the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Azure Active Directory** and press the **Enter** key.
+1. In the **Search resources, services, and docs** text box at the top of the Azure portal page, type **Microsoft Entra ID** and press the **Enter** key.
    
-1. On the **AdatumSync - Azure Active Directory** blade, in the **Manage** section, click **Custom domain names**.
+1. On the **AdatumSync - Microsoft Entra ID** blade, in the **Manage** section, click **Custom domain names**.
 
 1. On the **AdatumSync \| Custom domain names** blade, click **+ Add custom domain**.
 
 1. On the **Custom domain name** blade, in the **Custom domain name** text box, type **adatum.com** and click **Add Domain**.
 
-1. On the **adatum.com** blade, review the information necessary to perform verification of the Azure AD domain name and then select **Delete** twice.
+1. On the **adatum.com** blade, review the information necessary to perform verification of the Microsoft Entra ID domain name and then select **Delete** twice.
 
-    >**Note**: You will not be able to complete the validation process because you do not own the **adatum.com** DNS domain name. This will not prevent you from synchronizing the **adatum.com** AD DS domain with the Azure AD tenant. You will use for this purpose the initial DNS name of the Azure AD tenant (the name ending with the **onmicrosoft.com** suffix), which you identified in the previous task. However, keep in mind that, as a result, the DNS domain name of the AD DS domain and the DNS name of the Azure AD tenant will differ. This means that Adatum users will need to use different names when signing in to the AD DS domain and when signing in to Azure AD tenant.
+    >**Note**: You will not be able to complete the validation process because you do not own the **adatum.com** DNS domain name. This will not prevent you from synchronizing the **adatum.com** Microsoft Entra ID DS domain with the Microsoft Entra ID tenant. You will use for this purpose the initial DNS name of the Microsoft Entra ID tenant (the name ending with the **onmicrosoft.com** suffix), which you identified in the previous task. However, keep in mind that, as a result, the DNS domain name of the Microsoft Entra ID DS domain and the DNS name of the Microsoft Entra ID tenant will differ. This means that Adatum users will need to use different names when signing in to the Microsoft Entra ID DS domain and when signing in to Azure Microsoft Entra ID tenant.
 
-#### Task 3: Create an Azure AD user with the Global Administrator role
+#### Task 3: Create a Microsoft Entra ID user with the Global Administrator role
 
 In this task, you will add a new Azure AD user and assign them to the Global Administrator role. 
 
-1. On the **AdatumSync** Azure AD tenant blade, in the **Manage** section, click **Users**.
+1. On the **AdatumSync** Microsoft Entra ID tenant blade, in the **Manage** section, click **Users**.
 
 1. On the **Users** blade, click **+ New User** and then from the drop-down list, select **Create new user**. 
 
@@ -184,17 +184,17 @@ In this task, you will add a new Azure AD user and assign them to the Global Adm
 
 1. Select **Review + Create**
 
-    >**Note**: An Azure AD user with the Global Administrator role is required in order to implement Azure AD Connect.
+    >**Note**: A Microsoft Entra ID user with the Global Administrator role is required in order to implement Microsoft Entra ID Connect.
 
 1. Open an InPrivate browser window.
 
 1. Navigate to the Azure portal and sign in using the **syncadmin** user account and passwors. When prompted, change the password you recorded earlier in this task to **Pa55w.rd1234**.
 
-    >**Note**: To sign in you will need to provide a fully qualified name of the **syncadmin** user account, including the Azure AD tenant DNS domain name, which you recorded earlier in this task. This user name is in the format syncadmin@`<your_tenant_name>`.onmicrosoft.com, where `<your_tenant_name>` is the placeholder representing your unique Azure AD tenant name. 
+    >**Note**: To sign in you will need to provide a fully qualified name of the **syncadmin** user account, including the Microsoft Entra ID tenant DNS domain name, which you recorded earlier in this task. This user name is in the format syncadmin@`<your_tenant_name>`.onmicrosoft.com, where `<your_tenant_name>` is the placeholder representing your unique Microsoft Entra ID tenant name. 
 
 1. Sign out as **syncadmin** and close the InPrivate browser window.
 
-   > **Result**: After you completed this exercise, you have created an Azure AD tenant, added a custom DNS name to the new Azure AD tenant, and created an Azure AD user with the Global Administrator role.
+   > **Result**: After you completed this exercise, you have created an Microsoft Entra ID tenant, added a custom DNS name to the new Microsoft Entra ID tenant, and created a Microsoft Entra ID user with the Global Administrator role.
 
 ### Exercise 3: Synchronize Active Directory forest with an Azure Active Directory tenant
 
